@@ -18,7 +18,7 @@
                         <li><a href="">Cart</a></li>    
                         <li><a href="">Categories</a></li>
                         <li><a href="">Sign up</a></li>
-                        <li><a href="login.jsp">Login</a></li>
+                        <li><a href="login.jsp">Sign in</a></li>
                     </ul>
                 </nav>
             </div>
