@@ -16,8 +16,18 @@
                     <ul>
                         <li><a href="">Home</a></li>
                         <li><a href="">Cart</a></li>    
-                        <li><a href="">Categories</a></li>
-                        <li><a href="">Sign up</a></li>
+                        <li><a href="">Categories</a>
+                            <div class="sub-menu">
+                                <ul class="dropdown">
+                                    <li><a href="">Item1</a></li>
+                                    <li><a href="">Item2</a></li>
+                                    <li><a href="">Item3</a></li>
+                                    <li><a href="">Item4</a></li>
+                                    <li><a href="">Item5</a></li>
+                                </ul>
+                           </div>
+                        </li>
+                        <li><a href="register.jsp">Sign up</a></li>
                         <li><a href="login.jsp">Login</a></li>
                     </ul>
                 </nav>

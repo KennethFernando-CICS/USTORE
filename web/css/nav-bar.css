@@ -72,3 +72,37 @@ nav a:hover::before{
     position: absolute;
     background: #fff;
 }
+
+.sub-menu{
+    display: none;
+}
+
+nav ul li:hover .sub-menu{
+    display: block;
+    position: absolute;
+    background: rgb(255, 182, 18);
+}
+
+nav ul li:hover .sub-menu ul{
+    display: block;
+    margin: 10px;
+}
+
+nav ul li:hover .sub-menu ul li{
+    width: 150px;
+    padding: 5px;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    margin-left: 0;
+}
+
+nav ul li:hover .sub-menu ul li:last-of-type{
+    border-bottom: none;
+    background: transparent;
+}
+
+.sub-menu a:hover::before{
+    width: 0%;
+}
