@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+}
+
+.content-container{
+    margin: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+.product{
+    border:2px solid white;
+    padding:0;
+    width:20%;
+}
