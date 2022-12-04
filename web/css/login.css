@@ -1,18 +1,61 @@
 .form-container {
+    min-width: 80%;
     max-width: 80%;
     background-color: #fff;
-    border: black solid 1px;
+    /*border: black groove 1px;*/
     margin: 0 auto;
+}
+
+h1, h4{
+   text-align: center; 
 }
 
 fieldset{
     border: none;
+    margin: 0 auto;
+    
 }
 
 .login-container{
-    max-width: 80%;
+    display: grid;
+    max-width: 50%;
     background-color: #fff;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+
+
+.input[type=password]::-ms-reveal{
+    filter: invert(100%);
+}
+
+.others-container{
+    display: grid;
+    gap: 0.5rem;
+    /*border: 1px solid black;*/
     margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+.others{
+    margin: 0 auto;
+}
+
+
+.or{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 1rem;
+}
+
+.bar{
+    background-color: black;
+    height: 1px;
+    width: 30%;
 }
 
 /*Made by @Cornerstone-04 uiverse.io (for textboxes)*/

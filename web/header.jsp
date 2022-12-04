@@ -27,7 +27,7 @@
                                 </ul>
                            </div>
                         </li>
-                        <li><a href="register.jsp">Sign up</a></li>
+                        <li><a href="register.jsp">Register</a></li>
                         <li><a href="login.jsp">Login</a></li>
                     </ul>
                 </nav>

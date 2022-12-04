@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/nav-bar.css" />
         <link rel="stylesheet" href="css/login.css" />
         <link rel="icon" type="image/x-icon" href="images/icon.png"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
         <title>Login</title>
     </head>
 
@@ -21,7 +22,7 @@
         </header>
 
         <div class="login-container">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
             <div class="form-container">
                 <form action="" method="POST">
                     <fieldset>
@@ -31,10 +32,24 @@
                         <input placeholder="Password" class="input" name="password" type="password" required /><br>
                         <button class="login"> Login </button>
                         <h4>Forgot your <a href="">username</a> or <a href="">password</a>?</h4>
-                        <h4>new to UStore? <a href="">SIGN UP</a>
+                        <h4>New to UStore? <a href="">Register</a>
                     </fieldset>
                 </form>
             </div>
+            
+            <div class="others-container">
+                <div class="or">
+                    <div class="bar"></div>
+                    <h3>or you can use other credentials</h3>
+                    <div class="bar"></div>
+                </div>
+
+                <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
+                <button class="others"> <i class="fa fa-google"></i> Gmail </button>
+                <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+            </div>
+            
         </div>
+
     </body>
 </html>
