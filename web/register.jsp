@@ -33,6 +33,7 @@
                         <input type="checkbox" />just click this button
                         <br>
                         <input type="checkbox" />I dunno this is just a button
+                        <br>
                         <button class="register"> Register </button>
                         <h4>Already have an account? <a href="">Click Here!</a></h4>
                     </fieldset>

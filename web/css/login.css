@@ -6,14 +6,18 @@
     margin: 0 auto;
 }
 
-h1, h4{
+h1{
    text-align: center; 
+}
+
+h4{
+   text-align: right; 
 }
 
 fieldset{
     border: none;
-    margin: 0 auto;
-    
+    margin: 0 auto; 
+    padding: 1rem;
 }
 
 .login-container{
@@ -24,8 +28,6 @@ fieldset{
     padding: 1rem;
     border-radius: 1rem;
 }
-
-
 
 .input[type=password]::-ms-reveal{
     filter: invert(100%);
@@ -38,6 +40,7 @@ fieldset{
     margin: 0 auto;
     width: 80%;
     text-align: center;
+    padding: 1rem;
 }
 
 .others{
@@ -132,4 +135,9 @@ button:hover:before {
 button:active:before {
     background: rgb(255, 182, 18);
     transition: background 0s;
+}
+
+.register, .login{
+    align-self: center;
+    margin: 2% auto;
 }
