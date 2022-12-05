@@ -25,7 +25,7 @@
         <location>/login_error.html</location>
     </error-page>
     <error-page>
-        <error-code>103</error-code>
+        <error-code>404</error-code>
         <location>/missing_page_error.html</location>
     </error-page>
 </web-app>

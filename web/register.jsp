@@ -21,7 +21,7 @@
         <div class="login-container"> 
             <h1>REGISTER</h1>
             <div class="form-container">
-                <p>By filling out this form you agree to the <a href="">Privacy Agreement</a> and <a href="">User Agreement</a></p>           
+                <p>By filling out this form you agree to the <a href="privacy">Privacy Agreement</a> and <a href="user">User Agreement</a></p>           
                 <form action="index.jsp">
                     <fieldset>
                         <label for="fname">First Name: <input placeholder="First Name" class="input" name="fname" type="text" required /></label>
