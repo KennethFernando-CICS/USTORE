@@ -21,14 +21,16 @@
                 for (int i = 0; i < productList.size(); i++) {
                     Product currentProduct = productList.get(i);
                     
-            %>
-            <div class="product">
-                <img alt="product image" src="<%= currentProduct.getPictureName()%>">
-                <p><%= currentProduct.getName()%></p>
-                <p>$<%= currentProduct.getPrice()%></p>
-                <p><%= currentProduct.getSizeString()%></p>
-                <p>In Stock:<%= currentProduct.getStock()%></p>
-            </div>
+            %>            
+                <div class="product">
+                <a href="?<%= currentProduct.getProductId()%>">    
+                    <img alt="product image" src="images/<%= currentProduct.getPictureName()%>">
+                    <a href="?<%= currentProduct.getProductId()%>" id="pName"><%= currentProduct.getName()%></a>
+                    <p id="pPrice">$<%= currentProduct.getPrice()%></p>
+                    <p id="pSizes"><%= currentProduct.getSizeString()%></p>
+                    <p id="pStock">In Stock:<%= currentProduct.getStock()%></p>
+                </a>
+                </div>           
             <%
                 }
              %> 

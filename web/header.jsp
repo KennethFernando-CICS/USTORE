@@ -1,3 +1,5 @@
+<%@page import="java.util.*"%>
+<%@page import="model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,11 +21,17 @@
                         <li><a href="">Categories</a>
                             <div class="sub-menu">
                                 <ul class="dropdown">
-                                    <li><a href="">Item1</a></li>
-                                    <li><a href="">Item2</a></li>
-                                    <li><a href="">Item3</a></li>
-                                    <li><a href="">Item4</a></li>
-                                    <li><a href="">Item5</a></li>
+                                    <%
+                                        Map<String,List<Product>> categoryMap = (HashMap)application.getAttribute("categoryMap");
+                                                                                
+                                    %>
+                                    <li><a href="">T-shirt</a></li>
+                                    <li><a href="">Windbreaker</a></li>
+                                    <li><a href="">Jacket</a></li>
+                                    <%
+                                        }
+                                    %>
+
                                 </ul>
                            </div>
                         </li>

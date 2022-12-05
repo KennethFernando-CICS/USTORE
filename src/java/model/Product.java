@@ -4,6 +4,7 @@ package model;
 import java.util.*;
 
 public class Product {
+    private int productId;
     private String name;
     private double price;
     private int stock;
@@ -49,12 +50,12 @@ public class Product {
 
     public void setSizeList(String sizeString) {
         List<String> tempList = new ArrayList<>();
-        this.sizeString = sizeString;
+        this.setSizeString(sizeString);
         String[] sizes = sizeString.split("/");
         for (String size : sizes) {
             tempList.add(size);
         }
-        this.sizeList = tempList;
+        this.setSizeList(tempList);
     }
 
     public void setPictureName(String pictureName) {
@@ -62,6 +63,22 @@ public class Product {
     }
         
     public String toString(){
-        return this.name;
+        return this.getName();
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public void setSizeString(String sizeString) {
+        this.sizeString = sizeString;
+    }
+
+    public void setSizeList(List<String> sizeList) {
+        this.sizeList = sizeList;
     }
 }

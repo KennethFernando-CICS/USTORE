@@ -9,6 +9,52 @@
 }
 .product{
     border:2px solid white;
+    background-color: white;
     padding:0;
     width:20%;
+    height: 30rem;
+    width: 20rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(128,128,128,85);
+}
+
+.product img{
+    height: 75%;
+    width: 100%;
+}
+
+#pName, #pName:link, #pName:visited{
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-decoration: none;
+    color:black;
+}
+
+#pName:active{
+    color:red;
+}
+
+#pPrice{
+    margin: 2% auto;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: green;
+}
+
+#pSizes{
+    margin: 2% auto;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: orange;
+}
+
+#pStock{
+    margin: 2% auto;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
 }

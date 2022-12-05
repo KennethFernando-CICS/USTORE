@@ -26,6 +26,7 @@ public class USTORE_ServletListener implements ServletContextListener
         try {
             getLoginCredentials(context);
             getProducts(context);
+            categorizeProducts(context);
         } catch (IOException ex) {
             Logger.getLogger(USTORE_ServletListener.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -85,13 +86,14 @@ public class USTORE_ServletListener implements ServletContextListener
                     Product addProduct = new Product();
                     String[] productDetails = line.split(",");
                     //System.out.println(Arrays.toString(productDetails));
+                    addProduct.setProductId(ctr);
                     addProduct.setName(productDetails[0]);
                     addProduct.setPrice(Double.parseDouble(productDetails[1]));
                     addProduct.setStock(Integer.parseInt(productDetails[2]));
                     addProduct.setSizeList(productDetails[3]);
                     addProduct.setPictureName(productDetails[4]);                     
                     productList.add(addProduct);
-                    System.out.println("Added " + productList.get(ctr)); 
+                    //System.out.println("Added " + productList.get(ctr)); 
                     ctr++;
                 }
 
@@ -100,5 +102,23 @@ public class USTORE_ServletListener implements ServletContextListener
             }
         
         context.setAttribute("productList", productList);
+    }
+    public void categorizeProducts(ServletContext context){
+        List<Product> productList = (ArrayList)context.getAttribute("productList");
+        Map<String,List<Product>> categoryMap = new HashMap<>();
+        String[] categories = {"T-shirt","Windbreaker","Jacket"};
+        
+        for (String category : categories) {
+            List<Product> sortedList = new ArrayList<>();
+            categoryMap.put(category, sortedList);
+            //System.out.println("Added " + category + " to Map.");
+            for (Product product: productList) {
+                if(product.getName().contains(category)){
+                    sortedList.add(product);
+                    //System.out.println("Added " + product + "to " + category);
+                }
+            }
+        }        
+        context.setAttribute("categoryMap", categoryMap);        
     }
 }
