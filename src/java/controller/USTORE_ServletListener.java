@@ -15,7 +15,6 @@ import model.User;
  */
 public class USTORE_ServletListener implements ServletContextListener 
 {
-
     @Override
     public void contextInitialized(ServletContextEvent sce) 
     {
@@ -26,7 +25,8 @@ public class USTORE_ServletListener implements ServletContextListener
         try {
             getLoginCredentials(context);
             getProducts(context);
-            categorizeProducts(context);
+            //categorizeProducts(context);
+            System.out.println("Success");
         } catch (IOException ex) {
             Logger.getLogger(USTORE_ServletListener.class.getName()).log(Level.SEVERE, null, ex);
         }

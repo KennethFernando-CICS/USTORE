@@ -17,15 +17,15 @@
         <location>/cart_error.html</location>
     </error-page>
     <error-page>
-        <error-code>100</error-code>
+        <error-code>500</error-code>
         <location>/content_error.html</location>
     </error-page>
     <error-page>
-        <error-code>100</error-code>
+        <error-code>102</error-code>
         <location>/login_error.html</location>
     </error-page>
     <error-page>
-        <error-code>100</error-code>
+        <error-code>103</error-code>
         <location>/missing_page_error.html</location>
     </error-page>
 </web-app>
