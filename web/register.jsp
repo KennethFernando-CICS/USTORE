@@ -17,7 +17,7 @@
                 <a href="/USTORE"><img src="images/logo.png" alt="logo" class="logo" /></a>
             </div>
         </header>
-                
+
         <div class="login-container"> 
             <h1>REGISTER</h1>
             <div class="form-container">
@@ -45,10 +45,11 @@
                     <h3>or you can use other credentials</h3>
                     <div class="bar"></div>
                 </div>
-
-                <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
-                <button class="others"> <i class="fa fa-google"></i> Gmail </button>
-                <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+                <div class="other-buttons">
+                    <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
+                    <button class="others"> <i class="fa fa-google"></i> Gmail </button>
+                    <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+                </div>
             </div>
         </div>
     </body>

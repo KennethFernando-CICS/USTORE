@@ -6,11 +6,11 @@
 }
 
 h1{
-   text-align: center; 
+   text-align: center;
 }
 
 h4{
-   margin: 0;
+   margin: 0 0 -5% 0;
    text-align: right; 
 }
 
@@ -36,7 +36,6 @@ fieldset{
 .others-container{
     display: grid;
     gap: 0.5rem;
-    /*border: 1px solid black;*/
     margin: 0 auto;
     width: 80%;
     text-align: center;
@@ -87,6 +86,24 @@ fieldset{
     color: rgb(255, 182, 18);
 }
 
+.register, .login{
+    align-self: center;
+    margin: 2% auto;
+}
+
+.other-buttons{
+    width: 130%;
+    margin: -7% -15%;
+}
+
+.others{
+    margin: 2rem;
+}
+
+.register{
+    margin: 2% 38%;
+}
+
 /*Made by @cssbuttons-io uiverse.io (for login button)*/
 button {
     --color: rgb(255, 182, 18);
@@ -135,9 +152,4 @@ button:hover:before {
 button:active:before {
     background: rgb(255, 182, 18);
     transition: background 0s;
-}
-
-.register, .login{
-    align-self: center;
-    margin: 2% auto;
 }
