@@ -27,6 +27,7 @@
                         <label for="fname">First Name: <input placeholder="First Name" class="input" name="fname" type="text" required /></label>
                         <label for="lname">Last Name: <input placeholder="Last Name" class="input" name="lname" type="text" required /></label>
                         <label for="username">Username: <input placeholder="Username" class="input" name="username" type="text" required /></label>
+                        <label for="email">Email Address: <input placeholder="Email" class="input" name="email" type="text" required /></label>
                         <label for="password">Password: <input placeholder="Password" class="input" name="password" type="password" required /></label>
                         <input type="checkbox" />By clicking this button, you agree to have your information stored for advertisement purposes
                         <br>
