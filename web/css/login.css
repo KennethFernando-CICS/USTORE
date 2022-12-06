@@ -10,7 +10,6 @@ h1{
 }
 
 h4{
-   margin: 0 0 -5% 0;
    text-align: right; 
 }
 
@@ -99,7 +98,7 @@ fieldset{
     margin: 2rem;
 }
 
-.register{
+.register, .login{
     margin: 2% 38%;
 }
 

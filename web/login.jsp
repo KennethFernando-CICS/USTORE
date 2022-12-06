@@ -22,7 +22,7 @@
         <div class="login-container">
             <h1>LOGIN</h1>
             <div class="form-container">
-                <form action="" method="POST">
+                <form action="login" method="POST">
                     <fieldset>
                         <label for="username">Username:</label><br>
                         <input placeholder="Username" class="input" name="username" type="text" required /><br>
@@ -41,10 +41,11 @@
                     <h3>or you can use other credentials</h3>
                     <div class="bar"></div>
                 </div>
-
-                <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
-                <button class="others"> <i class="fa fa-google"></i> Gmail </button>
-                <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+                <div class="other-buttons">
+                    <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
+                    <button class="others"> <i class="fa fa-google"></i> Gmail </button>
+                    <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+                </div>
             </div>
             
         </div>
