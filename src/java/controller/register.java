@@ -5,6 +5,7 @@
 package controller;
 
 import java.io.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,11 @@ public class register extends HttpServlet {
             writer.write(user);
             writer.write(pass);
             writer.close();
+            //pass username password to login servlet
+            request.getSession().setAttribute("username", user);
+            request.getSession().setAttribute("login", "true");
+            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+            view.include(request, response);
         }
         catch(IOException e){
             response.sendError(440);
