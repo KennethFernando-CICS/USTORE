@@ -35,7 +35,6 @@ public class login extends HttpServlet {
 
             if (user.equals(credentials.get(pass))) {
                 request.getSession().setAttribute("username", user);
-                request.getSession().setAttribute("login", "true");
                 RequestDispatcher view = request.getRequestDispatcher("index.jsp");
                 view.include(request, response);
             } else {
