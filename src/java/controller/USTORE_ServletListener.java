@@ -88,7 +88,7 @@ public class USTORE_ServletListener implements ServletContextListener
                     addProduct.setSizeList(productDetails[3]);
                     addProduct.setPictureName(productDetails[4]);                     
                     productList.add(addProduct);
-                    //System.out.println("Added " + productList.get(ctr)); 
+                    System.out.println("Added " + productList.get(ctr)); 
                     ctr++;
                 }
             } catch (Exception e) {}

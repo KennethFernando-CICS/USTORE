@@ -2,10 +2,19 @@
     margin: 0;
 }
 
+h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+    background-color: rgb(255,182,18);
+}
+
 .content-container{
+    justify-content: center;
     margin: 0.5rem;
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 .product{
     border:2px solid white;

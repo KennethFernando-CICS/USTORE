@@ -26,7 +26,7 @@
                 <a href="/USTORE"><img src="images/logo.png" alt="logo" class="logo" /></a>
                 <nav>
                     <ul>
-                        <li><a href="">Home</a></li>
+                        <li><a href="/USTORE">Home</a></li>
                         <li><a href="">Cart</a></li>    
                         <li><a href="">Categories</a>
                             <div class="sub-menu">
@@ -36,7 +36,7 @@
                                         for(String key: cMap.keySet())
                                         {                                       
                                     %>
-                                    <li><a href=""><%= key%></a></li>
+                                    <li><a href="?category=<%= key%>"><%= key%></a></li>
                                     <%                                    
                                         }
                                     %>

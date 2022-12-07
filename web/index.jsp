@@ -15,13 +15,23 @@
     </head>
 
     <body>
-        <div class="content-container">
+        <%  
+            String category = request.getParameter("category");
+            List<Product> productList = null;
+            if(category == null){
+                productList = (ArrayList)request.getServletContext().getAttribute("productList");
+            }
+            else{
+                Map<String, List<Product>> categoryMap = (HashMap)application.getAttribute("categoryMap");
+                productList = categoryMap.get(category);
+                out.println("<h1>" + category + "</h1><br>");
+            }            
+        %>                      
+        <div class="content-container"> 
             <%
-                List<Product> productList = (ArrayList)request.getServletContext().getAttribute("productList");
                 for (int i = 0; i < productList.size(); i++) {
-                    Product currentProduct = productList.get(i);
-                    
-            %>            
+                Product currentProduct = productList.get(i);
+            %>
                 <div class="product">
                 <a href="?<%= currentProduct.getProductId()%>">    
                     <img alt="product image" src="images/<%= currentProduct.getPictureName()%>">
