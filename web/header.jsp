@@ -11,6 +11,16 @@
         <link rel="icon" type="image/x-icon" href="images/icon.png"/>
     </head>
     <body>
+        <%
+            //for HTTP 1.1
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+            //HTTP 1.0
+            response.setHeader("Progma", "no-cache");
+
+            //Proxies
+            response.setHeader("Expires", "0");
+        %>
         <header>
             <div class="container">
                 <a href="/USTORE"><img src="images/logo.png" alt="logo" class="logo" /></a>
@@ -33,8 +43,28 @@
                                 </ul>
                            </div>
                         </li>
-                        <li><a href="register.jsp">Register</a></li>
-                        <li><a href="login.jsp">Login</a></li>
+                        <%
+                            if(session.getAttribute("username") == null)
+                            {
+                        %>
+                            <li class="nav-li"><a href="register.jsp">Register</a></li>
+                            <li class="nav-li"><a href="login.jsp">Login</a></li>
+                        <%
+                            }
+                            else if(session.getAttribute("username") != null){
+                        %>
+                            <li>
+                                <a>Welcome ${sessionScope.username}
+                                    <div class="sub-menu">
+                                        <ul class="dropdown">
+                                            <li><a href="">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                        <%
+                            }
+                        %>
                     </ul>
                 </nav>
             </div>

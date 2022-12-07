@@ -58,3 +58,7 @@
     font-weight: bold;
     color: black;
 }
+
+.product:hover{
+    transform: scale(1.25,1.25);
+}
