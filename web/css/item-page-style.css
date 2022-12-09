@@ -28,7 +28,6 @@
 }
 
 .item-name{
-    position: relative;
     font-size: 150%;
     text-align: center;
     margin: -2% 0;
@@ -63,7 +62,7 @@ span{
 }
 
 .recommendations{
-    border: 2px black solid;
+    border-top: 2px black groove;
     height: 41%;
 }
 
@@ -71,6 +70,8 @@ span{
     margin: 1% 1%;
     font-size: 1.5rem;
 }
+
+
 
 /*button design by @Voxybuns from https://uiverse.io/Voxybuns/lucky-fireant-71*/
 button {
@@ -105,4 +106,70 @@ button:hover .button_top {
 button:active .button_top {
   /* Push the button downwards when pressed */
  transform: translateY(0);
+}
+
+.recommendations-container{
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.product{
+    border:2px dotted gray;
+    background-color: white;
+    padding:0;
+    width:20%;
+    height: 18rem;
+    width: 12rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(128,128,128,85);
+}
+
+.product img{
+    height: 75%;
+    width: 100%;
+}
+
+#pName, #pName:link, #pName:visited{
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-decoration: none;
+    color:black;
+}
+
+#pName:active{
+    color:red;
+}
+
+#pPrice{
+    margin: 2% auto;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: green;
+}
+
+#pSizes{
+    margin: 2% auto;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: orange;
+}
+
+#pStock{
+    margin: 2% auto;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.product:hover{
+    transform: scale(1.25,1.25);
 }

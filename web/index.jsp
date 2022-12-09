@@ -33,9 +33,9 @@
                 Product currentProduct = productList.get(i);
             %>
                 <div class="product">
-                <a href="?<%= currentProduct.getProductId()%>">    
+                <a href="content.jsp?productId=<%= currentProduct.getProductId()%>">    
                     <img alt="product image" src="images/<%= currentProduct.getPictureName()%>">
-                    <a href="?<%= currentProduct.getProductId()%>" id="pName"><%= currentProduct.getName()%></a>
+                    <a href="content.jsp?productId=<%= currentProduct.getProductId()%>" id="pName"><%= currentProduct.getName()%></a>
                     <p id="pPrice">$<%= currentProduct.getPrice()%></p>
                     <p id="pSizes"><%= currentProduct.getSizeString()%></p>
                     <p id="pStock">In Stock:<%= currentProduct.getStock()%></p>

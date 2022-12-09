@@ -106,6 +106,8 @@ public class USTORE_ServletListener implements ServletContextListener
             //System.out.println("Added " + category + " to Map.");
             for (Product product: productList) {
                 if(product.getName().contains(category)){
+                    product.setCategory(category);
+                    //System.out.println("Category " + category + " set to " + product);
                     sortedList.add(product);
                     //System.out.println("Added " + product + "to " + category);
                 }

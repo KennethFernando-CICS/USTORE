@@ -11,6 +11,7 @@ public class Product {
     private String sizeString;
     private List<String> sizeList;
     private String pictureName;
+    private String category;
     
     public Product(){};
 
@@ -80,5 +81,13 @@ public class Product {
 
     public void setSizeList(List<String> sizeList) {
         this.sizeList = sizeList;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
