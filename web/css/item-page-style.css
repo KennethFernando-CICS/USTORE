@@ -1,0 +1,108 @@
+.content-container{
+    background-color: white;
+    margin: 1.5rem 2.5rem;
+    width: 95%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.image{
+    width: 40%;
+}
+
+.image img{
+    max-width: 88%;
+    margin: 0 6%;
+    position: relative;
+}
+
+.information{
+    width: 60%;
+    border: 5px black solid;
+}
+
+.item-information{
+    height: 50%;
+}
+
+.item-name{
+    position: relative;
+    font-size: 150%;
+    text-align: center;
+    margin: -2% 0;
+}
+
+.other-info{
+    position: relative;
+    width: 94%;
+    text-align: center;
+    margin: 0 3%;
+}
+
+span{
+    color: red;
+}
+
+.selections{
+    position: relative;
+    text-align: center;
+}
+
+.selections select{
+    width: 50%;
+    background-color: black;
+    color: white;
+}
+
+.button{
+    position: relative;
+    width: 20%;
+    margin: 5% 42%;
+}
+
+.recommendations{
+    border: 2px black solid;
+    height: 41%;
+}
+
+.recommendations h1{
+    margin: 1% 1%;
+    font-size: 1.5rem;
+}
+
+/*button design by @Voxybuns from https://uiverse.io/Voxybuns/lucky-fireant-71*/
+button {
+  /* Variables */
+ --button_radius: 0.75em;
+ --button_color: #e8e8e8;
+ --button_outline_color: #000000;
+ font-size: 17px;
+ font-weight: bold;
+ border: none;
+ border-radius: var(--button_radius);
+ background: var(--button_outline_color);
+}
+
+.button_top {
+ display: block;
+ box-sizing: border-box;
+ border: 2px solid var(--button_outline_color);
+ border-radius: var(--button_radius);
+ padding: 0.75em 1.5em;
+ background: var(--button_color);
+ color: var(--button_outline_color);
+ transform: translateY(-0.2em);
+ transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+  /* Pull the button upwards when hovered */
+ transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+  /* Push the button downwards when pressed */
+ transform: translateY(0);
+}
