@@ -25,12 +25,12 @@
                 <form action="login" method="POST">
                     <fieldset>
                         <label for="username">Username:</label><br>
-                        <input placeholder="Username" class="input" name="username" type="text" required /><br>
+                        <input placeholder="Username" class="input" name="username" type="text" required value="admin"/><br>
                         <label for="password">Password:</label><br>
-                        <input placeholder="Password" class="input" name="password" type="password" required /><br>
+                        <input placeholder="Password" class="input" name="password" type="password" required value="admin123"/><br>
                         <button class="login"> Login </button>
                         <h4>Forgot your <a href="">username</a> or <a href="">password</a>?</h4>
-                        <h4>New to UStore? <a href="">Register</a>
+                        <h4>New to UStore? <a href="register.jsp">Register</a>
                     </fieldset>
                 </form>
             </div>
