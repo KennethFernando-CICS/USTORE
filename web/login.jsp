@@ -36,7 +36,7 @@
                         <label for="password">Password:</label><br>
                         <input placeholder="Password" class="input" name="password" type="password" required value="admin123"/><br>
                         <button class="login"> Login </button>
-                        <h4>Forgot your <a href="">username</a> or <a href="">password</a>?</h4>
+                        <h4>Forgot your <a href="nothingness">username</a> or <a href="nothingness">password</a>?</h4>
                         <h4>New to UStore? <a href="register.jsp">Register</a>
                     </fieldset>
                 </form>
@@ -49,9 +49,11 @@
                     <div class="bar"></div>
                 </div>
                 <div class="other-buttons">
-                    <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
-                    <button class="others"> <i class="fa fa-google"></i> Gmail </button>
-                    <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+                    <form action="nothingness">
+                        <button class="others"> <i class="fa fa-facebook"></i> Facebook </button>
+                        <button class="others"> <i class="fa fa-google"></i> Gmail </button>
+                        <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
+                    </form>
                 </div>
             </div>
         </div>
