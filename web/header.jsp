@@ -31,7 +31,7 @@
                                         for(String key: cMap.keySet())
                                         {                                       
                                     %>
-                                    <li><a href="?category=<%= key%>"><%= key%></a></li>
+                                    <li><a href="/USTORE/?category=<%= key%>"><%= key%></a></li>
                                     <%                                    
                                         }
                                     %>
@@ -52,7 +52,29 @@
                                 <a>Welcome ${sessionScope.username}
                                     <div class="sub-menu">
                                         <ul class="dropdown">
-                                            <li><a href="">Logout</a></li>
+                                            <%
+                                                String parameters = "";
+                                                Map<String,String[]> parameterMap = (HashMap)request.getParameterMap();
+                                                for (String key : parameterMap.keySet()) 
+                                                {
+                                                    parameters += key + "=" + parameterMap.get(key)[0];
+                                                }
+                                                //System.out.println(parameters);
+                                                
+                                                if(parameters == "")
+                                                {
+                                            %>
+                                                    <li><a href="logout?origin=<%= request.getRequestURL() %>">Logout</a></li>
+                                            <%
+                                                }
+                                                else
+                                                {
+                                            %>
+                                                    <li><a href="logout?origin=<%= request.getRequestURL() %>?<%= parameters %>">Logout</a></li>
+                                            <%
+                                                }
+                                            %>
+                                            
                                         </ul>
                                     </div>
                                 </a>
