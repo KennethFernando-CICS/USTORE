@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html{
+    
+}
+
 .content-container{
     background-color: white;
     margin: 1.5rem 2.5rem;
@@ -19,7 +23,6 @@
 
 .image img{
     width: 100%;
-    margin: auto;
 }
 
 .information{
@@ -28,7 +31,7 @@
 }
 
 .item-information{
-    height: 50%;
+    height: 45%;
 }
 
 .item-name{
@@ -76,7 +79,7 @@ span{
 
 .recommendations{
     border-top: 2px black groove;
-    height: 41%;
+    height: 55%;
 }
 
 .recommendations h1{
