@@ -12,13 +12,8 @@
     </head>
     <body>
         <%
-            //for HTTP 1.1
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-
-            //HTTP 1.0
             response.setHeader("Progma", "no-cache");
-
-            //Proxies
             response.setHeader("Expires", "0");
         %>
         <header>
@@ -27,7 +22,7 @@
                 <nav>
                     <ul>
                         <li><a href="/USTORE">Home</a></li>
-                        <li><a href="">Cart</a></li>    
+                        <li><a href="cart.jsp">Cart</a></li>    
                         <li><a href="">Categories</a>
                             <div class="sub-menu">
                                 <ul class="dropdown">
