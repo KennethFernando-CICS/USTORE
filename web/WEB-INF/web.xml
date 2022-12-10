@@ -35,7 +35,7 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
-        <error-code>100</error-code>
+        <error-code>420</error-code>
         <location>/cart_error.html</location>
     </error-page>
     <error-page>
