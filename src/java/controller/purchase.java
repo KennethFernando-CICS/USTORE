@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.*;
 import java.util.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
 public class purchase extends HttpServlet {
@@ -26,84 +27,93 @@ public class purchase extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession session = request.getSession();
-            session.setAttribute("purchaseTotal", "");
-            session.setAttribute("purchasedList", "");
-            User user = (User)session.getAttribute("user");
-            Map<String,String[]> cart = user.getCart();    
-            List<Product> productList = (ArrayList)request.getServletContext().getAttribute("productList");
-            String[] cartDetails = {};
-            System.out.println("here");
-            int quantity = 0;
-            String selectedSize = "";
-            double total = 0;
-            double subTotal = 0;
-            List<String> purchased = new ArrayList<>();
-            List<String> toDelete = new ArrayList<>();
-            List<Integer> toReduce = new ArrayList<>();
-            String[] checkboxValues = request.getParameterValues("checkbox_hidden");
-            System.out.println(Arrays.toString(checkboxValues));            
-            int cbCtr = 0;
-            for (String cartId : cart.keySet()) 
-            {                             
-                if(Integer.parseInt(checkboxValues[cbCtr]) == 1)
-                {
-                    cartDetails = cart.get(cartId);
-                    quantity =   Integer.parseInt(cartDetails[0]);
-                    selectedSize = cartDetails[1];
-                    int productId = Integer.parseInt(cartDetails[2]);
-                    Product product = productList.get(productId);
-                    
-                    if(Integer.parseInt(request.getParameter("quantity")) != quantity)
-                    {
-                        quantity = Integer.parseInt(request.getParameter("quantity"));
-                    }
-                    
-                    if(quantity < product.getStock() && quantity > 0)
-                    {
-                        subTotal = product.getPrice() * quantity;
-                        String purchasedDets = quantity + "x [" + selectedSize + "] " + product.getName() + "(" + String.format("%.2f", subTotal) + ")";
-                        purchased.add(purchasedDets);
-                        total += subTotal;
-                        toDelete.add(cartId);
-                        toReduce.add(productId);
-                        System.out.println("PURCHASED: P:" + product + ",QTY:" + quantity + ",SIZE:" + selectedSize);
-                        
-                    }
-                    else
-                    {
-                        response.sendError(420);
-                    }
-                }
-                cbCtr++;
-            }
-            if(!purchased.isEmpty() && !toDelete.isEmpty())
+            
+            System.out.println(request.getParameter("action"));
+            if("removeOnly".equals(request.getParameter("action")))
             {
-                int i = 0;
-                for(Integer prodId : toReduce)
-                {
-                    cartDetails = cart.get(toDelete.get(i));
-                    Product reduceStock = productList.get(prodId);
-                    int curStock = reduceStock.getStock();
-                    int reduction = Integer.parseInt(cartDetails[0]);
-                    reduceStock.setStock(curStock - reduction);
-                    System.out.println("REDUCE: P:" + reduceStock + " removed from cart. Stock:" + reduceStock.getStock());
-                    i++;
-                }
-                
-                for(String deleteCartId : toDelete)
-                {                    
-                    cart.remove(deleteCartId);                    
-                }
-                session.setAttribute("purchaseTotal",total);
-                session.setAttribute("purchasedList", purchased);
-                response.sendRedirect("success-buy.jsp");
-            }
+                System.out.println("went here");
+                RequestDispatcher rd = request.getRequestDispatcher("remove");
+                rd.forward(request, response);
+            }                       
             else
             {
-                response.sendRedirect("/USTORE/");
+                HttpSession session = request.getSession();
+                session.setAttribute("purchaseTotal", "");
+                session.setAttribute("purchasedList", "");
+                User user = (User)session.getAttribute("user");
+                Map<String,String[]> cart = user.getCart();    
+                List<Product> productList = (ArrayList)request.getServletContext().getAttribute("productList");
+                String[] cartDetails = {};
+                int quantity = 0;
+                String selectedSize = "";
+                double total = 0;
+                double subTotal = 0;
+                List<String> purchased = new ArrayList<>();
+                List<String> toDelete = new ArrayList<>();
+                List<Integer> toReduce = new ArrayList<>();
+                String[] checkboxValues = request.getParameterValues("checkbox_hidden");
+                System.out.println(Arrays.toString(checkboxValues));            
+                int cbCtr = 0;
+                for (String cartId : cart.keySet()) 
+                {                             
+                    if(Integer.parseInt(checkboxValues[cbCtr]) == 1)
+                    {
+                        cartDetails = cart.get(cartId);
+                        quantity =   Integer.parseInt(cartDetails[0]);
+                        selectedSize = cartDetails[1];
+                        int productId = Integer.parseInt(cartDetails[2]);
+                        Product product = productList.get(productId);
+
+                        if(Integer.parseInt(request.getParameter("quantity")) != quantity)
+                        {
+                            quantity = Integer.parseInt(request.getParameter("quantity"));
+                        }
+
+                        if(quantity < product.getStock() && quantity > 0)
+                        {
+                            subTotal = product.getPrice() * quantity;
+                            String purchasedDets = quantity + "x [" + selectedSize + "] " + product.getName() + "(" + String.format("%.2f", subTotal) + ")";
+                            purchased.add(purchasedDets);
+                            total += subTotal;
+                            toDelete.add(cartId);
+                            toReduce.add(productId);
+                            System.out.println("PURCHASED: P:" + product + ",QTY:" + quantity + ",SIZE:" + selectedSize);
+
+                        }
+                        else
+                        {
+                            response.sendError(420);
+                        }
+                    }
+                    cbCtr++;
+                }
+                if(!purchased.isEmpty() && !toDelete.isEmpty())
+                {
+                    int i = 0;
+                    for(Integer prodId : toReduce)
+                    {
+                        cartDetails = cart.get(toDelete.get(i));
+                        Product reduceStock = productList.get(prodId);
+                        int curStock = reduceStock.getStock();
+                        int reduction = Integer.parseInt(cartDetails[0]);
+                        reduceStock.setStock(curStock - reduction);
+                        System.out.println("REDUCE: P:" + reduceStock + " removed from cart. Stock:" + reduceStock.getStock());
+                        i++;
+                    }
+
+                    for(String deleteCartId : toDelete)
+                    {                    
+                        cart.remove(deleteCartId);                    
+                    }
+                    session.setAttribute("purchaseTotal",total);
+                    session.setAttribute("purchasedList", purchased);
+                    response.sendRedirect("success-buy.jsp");
+                }
+                else
+                {
+                    response.sendRedirect("/USTORE/");
+                }
             }
-            
         }
         catch(Exception e)
         {

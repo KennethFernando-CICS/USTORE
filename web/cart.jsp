@@ -21,7 +21,7 @@
             response.setHeader("Expires", "0");        
     %>
     <body>
-        <form action="purchase" id="purchase">
+        <form action="" name="purchase">           
         <div class="container-container"> <!--red color main container-->
             <div class="container-row">
                 <%
@@ -79,7 +79,14 @@
         </form>
             <div class="buttons">
                 <h2 class="total">Total price: <span class="total-price">$<%= total %></span></h2>
-                <button form="purchase">
+                <button form="purchase" onclick="buy()">
+                    <script>
+                        function buy()
+                        {
+                            document.purchase.action ="purchase";
+                            document.purchase.submit();
+                        }
+                    </script>
                     <div class="svg-wrapper-1">
                         <div class="svg-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -90,7 +97,14 @@
                     </div>
                     <span>Purchase</span>
                 </button>
-                <button>
+                <button form="purchase" onClick="remove();">                    
+                    <script>
+                        function remove()
+                        {
+                            document.purchase.action ="removeCart";
+                            document.purchase.submit();
+                        }
+                    </script>
                     <div class="svg-wrapper-1">
                         <div class="svg-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

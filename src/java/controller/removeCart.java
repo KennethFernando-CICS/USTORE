@@ -7,9 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.*;
 
-public class addToCart extends HttpServlet {
+public class removeCart extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -23,32 +24,32 @@ public class addToCart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-              
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.setHeader("Progma", "no-cache");
-        response.setHeader("Expires", "0");    
-
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            String quantity = request.getParameter("quantity");
-            String productId = request.getParameter("productId");
-            String selectedSize = request.getParameter("selectedSize");
-
-            String[] toAdd = {quantity,selectedSize,productId};
-
-            User user = (User)request.getSession().getAttribute("user");            
-            Map<String,String[]> cart = user.getCart();
-            String cartId = String.valueOf(cart.size());
-            cart.put(cartId, toAdd);
-            if(cart.containsKey(cartId))
-            {
-                System.out.println("ADD: PID:" + productId + ",QTY:" + toAdd[0] + ",SIZE:" + toAdd[1]);
-            }
-            response.sendRedirect(request.getHeader("referer"));
-        }
-        catch(NullPointerException npe)
+        try ( PrintWriter out = response.getWriter()) 
         {
-            response.sendError(420);
+            HttpSession session = request.getSession();
+            User user = (User)session.getAttribute("user");
+            Map<String,String[]> cart = user.getCart();    
+            List<Product> productList = (ArrayList)request.getServletContext().getAttribute("productList");
+            String[] cartDetails = {};
+            System.out.println("here");
+
+            List<String> toDelete = new ArrayList<>();
+            String[] checkboxValues = request.getParameterValues("checkbox_hidden");
+            System.out.println(Arrays.toString(checkboxValues));            
+            int cbCtr = 0;
+            for (String cartId : cart.keySet()) 
+            {
+                if(Integer.parseInt(checkboxValues[cbCtr]) == 1)
+                {
+                    toDelete.add(cartId);                    
+                }
+                cbCtr++;
+            }
+            for(String deleteCartId : toDelete)
+            {                    
+                cart.remove(deleteCartId);                    
+            }
+            response.sendRedirect("cart.jsp");
         }
     }
 
