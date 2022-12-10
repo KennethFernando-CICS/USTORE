@@ -33,7 +33,7 @@
                         <div class="other-info">
                             <h2>Price: <span>$<%= shownProduct.getPrice()%></span></h2>
                             <div class="quantity-container">
-                                <label for="quantities">Quantity: <input name="quantity" type="number" min="1" value="1" required>
+                                <label for="quantities">Quantity: <input name="quantity" type="number" min="1" value="1" max="<%= shownProduct.getStock()%>" required>
                                     <%= shownProduct.getStock()%> available items</span></label>
                             </div>
                             <div class="selections">
