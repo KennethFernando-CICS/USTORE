@@ -11,7 +11,13 @@
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
         <title>Login</title>
     </head>
-
+    <%        if (session.getAttribute("username") != null) {
+            response.sendRedirect("index.jsp");
+        }
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setHeader("Progma", "no-cache");
+        response.setHeader("Expires", "0");
+    %>
     <body>
         <header>
             <div class="container">
@@ -34,7 +40,7 @@
                     </fieldset>
                 </form>
             </div>
-            
+
             <div class="others-container">
                 <div class="or">
                     <div class="bar"></div>
@@ -47,7 +53,7 @@
                     <button class="others"> <i class="fa fa-twitter"></i> Twitter </button>
                 </div>
             </div>
-            
+
         </div>
 
     </body>

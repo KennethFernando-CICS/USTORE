@@ -17,8 +17,8 @@
     %>
     <body>
         <div class="container-container"> <!--red color main container-->
-            <div class="container-row">
-                <div class="content-container"> <!--for one row (2 items) (blue color)-->
+            <div class="container-row"> <!--for one row (2 items) (blue color)-->
+                <div class="content-container"> 
                     <div class="selected">
                         <input type="checkbox" class="ch-box">
                     </div>
