@@ -12,6 +12,8 @@
     <%        if (session.getAttribute("username") == null) {
             response.sendRedirect("login.jsp");
         }
+        else
+        {
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Progma", "no-cache");
         response.setHeader("Expires", "0");
@@ -26,7 +28,7 @@
                     String[] cartDetails = {};
                     String quantity = "";
                     String selectedSize = "";
-                    
+                    double total = 0;
                     for (String cartId: cart.keySet()) 
                     {
                         cartDetails = cart.get(cartId);
@@ -34,6 +36,7 @@
                         selectedSize = cartDetails[1];
                         int productId = Integer.parseInt(cartDetails[2]);
                         Product product = productList.get(productId);
+                        total += product.getPrice() * Integer.parseInt(quantity);
                         System.out.println("CART: P:" + product + ",QTY:" + quantity + ",SIZE:" + selectedSize);
                 %>
                     <div class="content-container"> <!--for one row (2 items) (blue color)-->
@@ -64,7 +67,7 @@
         </div>
         <form action="">
             <div class="buttons">
-                <h2 class="total">Total price: <span class="total-price">$0.00</span></h2>
+                <h2 class="total">Total price: <span class="total-price">$<%= total %></span></h2>
                 <button>
                     <div class="svg-wrapper-1">
                         <div class="svg-wrapper">
@@ -91,3 +94,4 @@
         </form>
     </body>
 </html>
+<%}%>
