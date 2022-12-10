@@ -36,7 +36,7 @@
                         <input type="checkbox" />I dunno this is just a button
                         <br>
                         <button class="register"> Register </button>
-                        <h4>Already have an account? <a href="">Click Here!</a></h4>
+                        <h4>Already have an account? <a href="login.jsp">Click Here!</a></h4>
                     </fieldset>
                 </form>
             </div>

@@ -58,6 +58,10 @@ fieldset{
     width: 30%;
 }
 
+a:visited, a{
+    color: blue;
+}
+
 /*Made by @Cornerstone-04 uiverse.io (for textboxes)*/
 .input {
     width: 97%;

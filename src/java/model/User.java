@@ -4,16 +4,22 @@
 */
 package model;
 
+import java.util.ArrayList;
+import java.util.*;
+
 public class User{
     private String username;
     private String password;
     private String firstName;
     private String LastName;
     private String email;
+    private Map<String,String[]> cart = null;
     
     public User(String username, String password){
         this.setUsername(username);
         this.setPassword(password);
+        this.cart = new HashMap<>();
+        System.out.println(cart);
     }
 
     public String getUsername() {
@@ -59,5 +65,15 @@ public class User{
     public String toString(){
         return this.getUsername();
     }
+
+    public Map<String,String[]> getCart() {
+        return cart;
+    }
+
+    public void setCart(Map<String,String[]> cart) {
+        this.cart = cart;
+    }
+
+    
     
 }

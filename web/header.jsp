@@ -31,7 +31,7 @@
                                         for(String key: cMap.keySet())
                                         {                                       
                                     %>
-                                    <li><a href="/USTORE/?category=<%= key%>"><%= key%></a></li>
+                                        <li><a href="/USTORE/?category=<%= key%>"><%= key%></a></li>
                                     <%                                    
                                         }
                                     %>
