@@ -24,12 +24,11 @@ public class logout extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) 
         {
-            String origin = request.getParameter("origin");
-            //System.out.println(origin);
-            HttpSession session = request.getSession();
-            session.removeAttribute("username");
-            session.invalidate();
-            response.sendRedirect(origin);
+            String origin = request.getParameter("origin"); //get which page the logout is clicked on
+            HttpSession session = request.getSession(); //get the session
+            session.removeAttribute("username"); //delete attribute username (used to show the user in the nav bar)
+            session.invalidate(); //delete the current session
+            response.sendRedirect(origin); //send the user back to where they clicked logout
         }
     }
 
