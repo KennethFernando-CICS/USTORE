@@ -1,0 +1,14 @@
+.content-container{
+    margin: 2% 20%;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
