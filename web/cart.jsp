@@ -38,11 +38,11 @@
                         </div>
                     </div>
                 </div>
-               
             </div>
         </div>
-        <div class="buttons">
-            <form action="">
+        <form action="">
+            <div class="buttons">
+                <h2 class="total">Total price: <span class="total-price">$0.00</span></h2>
                 <button>
                     <div class="svg-wrapper-1">
                         <div class="svg-wrapper">
@@ -54,7 +54,7 @@
                     </div>
                     <span>Purchase</span>
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
     </body>
 </html>
