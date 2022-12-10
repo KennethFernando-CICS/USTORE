@@ -17,6 +17,7 @@
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Progma", "no-cache");
         response.setHeader("Expires", "0");
+        }
     %>
     <body>
         <div class="container-container"> <!--red color main container-->
@@ -41,6 +42,7 @@
                 %>
                     <div class="content-container"> <!--for one row (2 items) (blue color)-->
                         <div class="selected">
+                            <span class="delete-btn"></span
                             <input type="checkbox" class="ch-box" name="cb_<%= cartId %>">
                         </div>
                         <div class="image">
