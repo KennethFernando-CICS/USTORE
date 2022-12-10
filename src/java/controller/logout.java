@@ -2,15 +2,13 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class login extends HttpServlet {
+public class logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -21,29 +19,17 @@ public class login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected int i = 5;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ServletContext context = getServletContext();
-        Map<String, String> credentials = (Map) context.getAttribute("credentials");
-
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-
-            if (user.equals(credentials.get(pass))) {
-                request.getSession().setAttribute("username", user);                
-                response.sendRedirect("/USTORE/");
-            } else {
-                if(i != 0){
-                    response.sendRedirect("/USTORE/login.jsp");
-                    i--;
-                }
-                else    
-                    response.sendError(440);
-            }
+        try ( PrintWriter out = response.getWriter()) 
+        {
+            String origin = request.getParameter("origin");
+            //System.out.println(origin);
+            HttpSession session = request.getSession();
+            session.removeAttribute("username");
+            session.invalidate();
+            response.sendRedirect(origin);
         }
     }
 

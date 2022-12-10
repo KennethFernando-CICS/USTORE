@@ -26,29 +26,35 @@
             </div>
             <div class="information">
                 <div class="item-information">
-                    <form action="">
+                    <form action="" id="addToCart">
                         <div class="item-name">
                             <h1><%= shownProduct.getName()%></h1>
-                        </div>
+                        </div>                       
                         <div class="other-info">
                             <h2>Price: <span>$<%= shownProduct.getPrice()%></span></h2>
                             <div class="quantity-container">
-                                <label for="quantities">Quantity: <input type="number" min="1" value="1" required>
+                                <label for="quantities">Quantity: <input name="quantity" type="number" min="1" value="1" required>
                                     <%= shownProduct.getStock()%> available items</span></label>
                             </div>
                             <div class="selections">
                                 <h4>Size Options:</h4>
-                                <select>
-                                    <option value="N/A">Select a size:</option>
-                                    <option value="XS">XS</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                    <option value="XXL">XXL</option>
+                                
+                                <input name="productId" type="hidden" value="<%= productId %>">                                
+                                <select name="selectedSize" required>
+                                    <option value="" disabled selected>Select a size:</option>
+                                    <%
+                                        List<String> Sizes = shownProduct.getSizeList();
+                                        for (String size : Sizes) 
+                                        {
+                                    %>
+                                            <option value="<%= size%>"><%= size%></option>
+                                    <%            
+                                        }
+                                    %>
                                 </select>
+                                
                             </div>
-                        </div>
+                        </div>                        
                         <div class="button">
                             <button><span class="button_top">Add to Cart</span></button>
                         </div>
