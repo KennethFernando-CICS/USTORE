@@ -22,8 +22,6 @@
 
 }
 
-
-
 .image {
     width: 40%;
     margin: auto 0;
@@ -96,6 +94,7 @@ button {
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.2s;
+  margin: 0 2%;
 }
 
 button span {
