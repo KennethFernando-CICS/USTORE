@@ -14,12 +14,13 @@
 
 .image{
     width: 40%;
+    display: flex;
+    align-items: center;
 }
 
 .image img{
-    max-width: 88%;
-    margin: 0 6%;
-    position: relative;
+    width: 90%;
+    margin: auto;
 }
 
 .information{
