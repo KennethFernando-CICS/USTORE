@@ -9,22 +9,31 @@
         <link rel="stylesheet" href="css/cart-style.css" />
         <title>Cart</title>
     </head>
-    <%        if (session.getAttribute("username") == null) {
+    <%        
+        if(session.getAttribute("username") == null) 
+        {
             response.sendRedirect("login.jsp");
         }
         else
         {
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.setHeader("Progma", "no-cache");
-        response.setHeader("Expires", "0");
-        }
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            response.setHeader("Progma", "no-cache");
+            response.setHeader("Expires", "0");        
     %>
     <body>
+        <form action="purchase" id="purchase">
         <div class="container-container"> <!--red color main container-->
             <div class="container-row">
                 <%
                     User user = (User)session.getAttribute("user");
                     Map<String,String[]> cart = user.getCart();    
+                    
+                    
+                    if(cart.isEmpty())
+                    {
+                        out.println("<h4 style=\"color:white;font-size:10rem;\">CART IS EMPTY<h4>");
+                    }
+                    
                     List<Product> productList = (ArrayList)request.getServletContext().getAttribute("productList");
                     String[] cartDetails = {};
                     String quantity = "";
@@ -42,8 +51,8 @@
                 %>
                     <div class="content-container"> <!--for one row (2 items) (blue color)-->
                         <div class="selected">
-                            <span class="delete-btn"></span
-                            <input type="checkbox" class="ch-box" name="cb_<%= cartId %>">
+                            <span class="delete-btn"></span>
+                            <input type="hidden" name="checkbox_hidden" value="0"><input type="checkbox" class="ch-box" onclick="this.previousSibling.value=1-this.previousSibling.value">
                         </div>
                         <div class="image">
                             <img src="images/<%= product.getPictureName() %>" alt="Black T-shirt"/>
@@ -57,7 +66,7 @@
                                     <h4>Size: <span><%= selectedSize %></span></h4>
                                     <h4>Price: <span>$<%= product.getPrice()%></span></h4>
                                     <h4>Number of Stocks left: <span><%= product.getStock() %></span></h4>
-                                    <label for="quantity">Quantity: <input type="number" value="<%= quantity %>" min="1"></label>
+                                    <label for="quantity">Quantity: <input type="number" value="<%= quantity %>" min="1" name="quantity"></label>
                                 </div>
                             </div>                       
                         </div>
@@ -67,10 +76,10 @@
                 %>
             </div>
         </div>
-        <form action="">
+        </form>
             <div class="buttons">
                 <h2 class="total">Total price: <span class="total-price">$<%= total %></span></h2>
-                <button>
+                <button form="purchase">
                     <div class="svg-wrapper-1">
                         <div class="svg-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -92,8 +101,7 @@
                     </div>
                     <span>Remove</span>
                 </button>
-            </div>
-        </form>
+            </div>        
     </body>
 </html>
 <%}%>

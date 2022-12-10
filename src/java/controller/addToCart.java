@@ -24,7 +24,8 @@ public class addToCart extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        if (request.getSession().getAttribute("username") == null) {
+        if (request.getSession().getAttribute("username") == null) 
+        {
             response.sendRedirect("login.jsp");
         }       
         else
@@ -53,7 +54,7 @@ public class addToCart extends HttpServlet {
             }
             catch(NullPointerException npe)
             {
-                System.out.println("NPE");            
+                response.sendError(420);
             }
         }
     }
