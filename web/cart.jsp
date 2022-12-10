@@ -1,3 +1,4 @@
+<%@page import="model.*"%>
 <%@include file="header.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,26 +19,46 @@
     <body>
         <div class="container-container"> <!--red color main container-->
             <div class="container-row">
-                <div class="content-container"> <!--for one row (2 items) (blue color)-->
-                    <div class="selected">
-                        <input type="checkbox" class="ch-box">
-                    </div>
-                    <div class="image">
-                        <img src="images/growling-hang-front-yb-1229x1536.jpg" alt="Black T-shirt"/>
-                    </div>
-                    <div class="information">
-                        <div class="item-information">
-                            <div class="item-name">
-                                <h1>Black T-shirt</h1>
-                            </div>
-                            <div class="other-info">
-                                <h4>Price: <span>$5</span></h4>
-                                <h4>Number of Stocks left: <span>5</span></h4>
-                                <label for="quantity">Quantity: <input type="number"></label>
-                            </div>
+                <%
+                    User user = (User)session.getAttribute("user");
+                    Map<String,String[]> cart = user.getCart();    
+                    List<Product> productList = (ArrayList)request.getServletContext().getAttribute("productList");
+                    String[] cartDetails = {};
+                    String quantity = "";
+                    String selectedSize = "";
+                    
+                    for (String cartId: cart.keySet()) 
+                    {
+                        cartDetails = cart.get(cartId);
+                        quantity =   cartDetails[0];
+                        selectedSize = cartDetails[1];
+                        int productId = Integer.parseInt(cartDetails[2]);
+                        Product product = productList.get(productId);
+                        System.out.println("CART: P:" + product + ",QTY:" + quantity + ",SIZE:" + selectedSize);
+                %>
+                    <div class="content-container"> <!--for one row (2 items) (blue color)-->
+                        <div class="selected">
+                            <input type="checkbox" class="ch-box" name="cb_<%= cartId %>">
+                        </div>
+                        <div class="image">
+                            <img src="images/<%= product.getPictureName() %>" alt="Black T-shirt"/>
+                        </div>
+                        <div class="information">
+                            <div class="item-information">
+                                <div class="item-name">
+                                    <h1><%= product.getName() %></h1>
+                                </div>
+                                <div class="other-info">
+                                    <h4>Price: <span>$<%= product.getName() %></span></h4>
+                                    <h4>Number of Stocks left: <span><%= product.getStock() %></span></h4>
+                                    <label for="quantity">Quantity: <input type="number"></label>
+                                </div>
+                            </div>                       
                         </div>
                     </div>
-                </div>
+                <%
+                    }
+                %>
             </div>
         </div>
         <form action="">

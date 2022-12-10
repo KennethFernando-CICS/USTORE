@@ -22,7 +22,7 @@ public class register extends HttpServlet {
         
         try ( PrintWriter out = response.getWriter()) {
             credentials.put(user, pass);
-            System.out.println("REGISTER: Put " + user + "," + pass);
+            System.out.println("REGISTER: Put " + user + "in cred map.");
             User u = new User(user, pass);
             u.setFirstName(request.getParameter("fname"));
             u.setLastName(request.getParameter("lname"));

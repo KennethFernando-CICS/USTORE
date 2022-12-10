@@ -3,15 +3,13 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
+import model.*;
 
-public class login extends HttpServlet {
+public class addToCart extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -22,39 +20,40 @@ public class login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected int i = 5;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ServletContext context = getServletContext();
-        Map<String, String> credentials = (Map) context.getAttribute("credentials");
-        List<User> userList = (ArrayList)context.getAttribute("userList");
+        
+        if (request.getSession().getAttribute("username") == null) {
+            response.sendRedirect("login.jsp");
+        }       
+        else
+        {       
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            response.setHeader("Progma", "no-cache");
+            response.setHeader("Expires", "0");    
                 
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-            
-            if (pass.equals(credentials.get(user))) {
-                for (User selectedUser : userList) 
+            try ( PrintWriter out = response.getWriter()) {
+                /* TODO output your page here. You may use following sample code. */
+                String quantity = request.getParameter("quantity");
+                String productId = request.getParameter("productId");
+                String selectedSize = request.getParameter("selectedSize");
+
+                String[] toAdd = {quantity,selectedSize,productId};
+
+                User user = (User)request.getSession().getAttribute("user");            
+                Map<String,String[]> cart = user.getCart();
+                String cartId = String.valueOf(cart.size());
+                cart.put(cartId, toAdd);
+                if(cart.containsKey(cartId))
                 {
-                    if(user.equals(selectedUser.getUsername()))
-                    {
-                        System.out.println("LOGIN: Logged in " + selectedUser + " as user.");
-                        request.getSession().setAttribute("user", selectedUser); 
-                        
-                        request.getSession().setAttribute("username", user);                
-                        response.sendRedirect("/USTORE/");
-                    }
-                }                               
-                               
-            } else {
-                if(i != 0){
-                    response.sendRedirect("/USTORE/login.jsp");
-                    i--;
+                    System.out.println("ADD: PID:" + productId + ",QTY:" + toAdd[0] + ",SIZE:" + toAdd[1]);
                 }
-                else    
-                    response.sendError(440);
+                response.sendRedirect(request.getHeader("referer"));
+            }
+            catch(NullPointerException npe)
+            {
+                System.out.println("NPE");            
             }
         }
     }

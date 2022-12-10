@@ -26,7 +26,7 @@
             </div>
             <div class="information">
                 <div class="item-information">
-                    <form action="" id="addToCart">
+                    <form action="addToCart" id="addToCart">
                         <div class="item-name">
                             <h1><%= shownProduct.getName()%></h1>
                         </div>                       

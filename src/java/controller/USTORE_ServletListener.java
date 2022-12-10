@@ -47,16 +47,20 @@ public class USTORE_ServletListener implements ServletContextListener
         InputStream is = context.getResourceAsStream(path);
 
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        String user, pass = null;
+        String user = null, pass = null;
 
-        for (int ctr = 1; (user = br.readLine()) != null; ctr++) {
+        for (int ctr = 1; (pass = br.readLine()) != null; ctr++) {
             if (ctr % 2 != 0){
-                pass = user;
+                user = pass;
             } else {
+                //System.out.println("USER: " + user);
+                //System.out.println("PASS: " + pass);                
                 credentials.put(user, pass);
+                //System.out.println("INIT: Added " + user + "," + pass + " to cred map.");
                 User u = new User(user, pass);
                 u.setFirstName(user);
                 userList.add(u);
+                System.out.println("INIT: Added " + u.getUsername() + " to user list.");
             }
 
         }
@@ -88,7 +92,7 @@ public class USTORE_ServletListener implements ServletContextListener
                     addProduct.setSizeList(productDetails[3]);
                     addProduct.setPictureName(productDetails[4]);                     
                     productList.add(addProduct);
-                    System.out.println("Added " + productList.get(ctr)); 
+                    System.out.println("INIT: Added " + productList.get(ctr) + " to product list."); 
                     ctr++;
                 }
             } catch (Exception e) {}
