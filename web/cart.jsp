@@ -49,9 +49,9 @@
                                     <h1><%= product.getName() %></h1>
                                 </div>
                                 <div class="other-info">
-                                    <h4>Price: <span>$<%= product.getName() %></span></h4>
+                                    <h4>Price: <span>$<%= product.getPrice()%></span></h4>
                                     <h4>Number of Stocks left: <span><%= product.getStock() %></span></h4>
-                                    <label for="quantity">Quantity: <input type="number"></label>
+                                    <label for="quantity">Quantity: <input type="number" value="<%= quantity %>" min="1"></label>
                                 </div>
                             </div>                       
                         </div>
