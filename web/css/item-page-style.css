@@ -44,6 +44,11 @@ span{
     color: red;
 }
 
+.quantity-container input{
+    color: white;
+    background-color: black;
+}
+
 .selections{
     position: relative;
     text-align: center;
@@ -53,6 +58,10 @@ span{
     width: 50%;
     background-color: black;
     color: white;
+}
+
+.selections h4{
+    margin-bottom: 0;
 }
 
 .button{
@@ -70,8 +79,6 @@ span{
     margin: 1% 1%;
     font-size: 1.5rem;
 }
-
-
 
 /*button design by @Voxybuns from https://uiverse.io/Voxybuns/lucky-fireant-71*/
 button {
