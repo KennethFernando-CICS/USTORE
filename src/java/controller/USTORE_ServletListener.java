@@ -38,7 +38,7 @@ public class USTORE_ServletListener implements ServletContextListener
         System.out.println("UStore Web Application Shut Down.");
     }
     
-    public void getLoginCredentials(ServletContext context) throws IOException 
+    public void getLoginCredentials(ServletContext context) throws IOException //used to initialize the login credentials map and user lists
     {     
         Map<String, String> credentials = new HashMap<>();
         List<User> userList = new ArrayList<>();

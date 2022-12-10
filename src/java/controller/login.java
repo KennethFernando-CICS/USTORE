@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +31,7 @@ public class login extends HttpServlet {
                 
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
+            //get the username/password input
             String user = request.getParameter("username");
             String pass = request.getParameter("password");
             
@@ -44,17 +44,17 @@ public class login extends HttpServlet {
                         request.getSession().setAttribute("user", selectedUser); 
                         
                         request.getSession().setAttribute("username", user);                
-                        response.sendRedirect("/USTORE/");
+                        response.sendRedirect("/USTORE/"); //redirect the user back to the main homepage
                     }
                 }                               
                                
             } else {
-                if(i != 0){
+                if(i != 0){ //refresh the page whenever the user puts a wrong credential
                     response.sendRedirect("/USTORE/login.jsp");
-                    i--;
+                    i--; //up to 5 wrong inputs are only allowed
                 }
                 else    
-                    response.sendError(440);
+                    response.sendError(440); //if the user failed to give the correct pass 5 times
             }
         }
     }
